@@ -1,0 +1,63 @@
+site_name: HLSLens
+site_description: Documentation for HLSLens, a post-processing plugin for Unreal Engine 5.
+site_url: https://riipitud.github.io/plugin-docs/
+copyright: Copyright &copy; HLSLens
+
+theme:
+  name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  icon:
+    logo: material/camera-iris
+  favicon: assets/favicon.svg
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Getting started:
+      - Overview: index.md
+      - Installation: installation.md
+  - Effects:
+      - Lens flares: lens-flares.md
+      - Bloom: bloom.md
+      - Halation: halation.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
