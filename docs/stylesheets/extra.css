@@ -1,0 +1,464 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap");
+
+/* =========================================================
+   Brand tokens (taken from the HLSLens logo and promo art)
+   ink     #0c0b0e  – background of the promo caption bar
+   gold    #efc878  – logo ring and blades
+   cream   #ffeec4  – logo aperture
+   violet  #a99bff  – section labels ("TONEMAPPER")
+   ========================================================= */
+:root {
+  --hl-ink: #0c0b0e;
+  --hl-gold: #efc878;
+  --hl-gold-deep: #8a6414;   /* gold that is readable on light backgrounds */
+  --hl-cream: #ffeec4;
+  --hl-violet: #5b45d6;      /* light mode: darker violet for contrast */
+  --hl-coral: #c4502b;
+  --hl-surface: #f3f0ea;
+  --hl-rule: rgba(20, 16, 28, 0.1);
+  --hl-heading: "Jost", "Inter", sans-serif;
+
+  --md-default-bg-color: #faf8f5;
+  --md-default-fg-color: #1b1820;
+  --md-default-fg-color--light: rgba(27, 24, 32, 0.72);
+  --md-default-fg-color--lighter: rgba(27, 24, 32, 0.4);
+  --md-default-fg-color--lightest: rgba(27, 24, 32, 0.1);
+
+  --md-primary-fg-color: var(--hl-ink);
+  --md-primary-fg-color--light: #1d1a22;
+  --md-primary-fg-color--dark: #000;
+  --md-primary-bg-color: #f4f1ea;
+  --md-primary-bg-color--light: rgba(244, 241, 234, 0.7);
+  --md-accent-fg-color: var(--hl-violet);
+  --md-accent-fg-color--transparent: rgba(91, 69, 214, 0.1);
+  --md-typeset-a-color: var(--hl-violet);
+  --md-code-bg-color: #f0ece5;
+  --md-footer-bg-color: var(--hl-ink);
+  --md-footer-bg-color--dark: #060507;
+}
+
+[data-md-color-scheme="slate"] {
+  --hl-violet: #a99bff;
+  --hl-gold-deep: var(--hl-gold);
+  --hl-coral: #f08a5d;
+  --hl-surface: #15131a;
+  --hl-rule: rgba(236, 232, 242, 0.08);
+
+  --md-hue: 260;
+  --md-default-bg-color: var(--hl-ink);
+  --md-default-fg-color: rgba(236, 232, 242, 0.92);
+  --md-default-fg-color--light: rgba(236, 232, 242, 0.68);
+  --md-default-fg-color--lighter: rgba(236, 232, 242, 0.38);
+  --md-default-fg-color--lightest: rgba(236, 232, 242, 0.1);
+  --md-code-bg-color: #17151c;
+  --md-accent-fg-color: var(--hl-violet);
+  --md-accent-fg-color--transparent: rgba(169, 155, 255, 0.12);
+  --md-typeset-a-color: var(--hl-violet);
+}
+
+/* ---------- Header ---------- */
+.md-header {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(239, 200, 120, 0.14);
+}
+.md-header__button.md-logo img {
+  height: 1.7rem;
+}
+.md-header__title {
+  font-family: var(--hl-heading);
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+.md-search__form {
+  border-radius: 6px;
+}
+
+/* ---------- Navigation ---------- */
+.md-nav__title,
+.md-nav__item--section > .md-nav__link {
+  font-family: var(--hl-heading);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--lighter) !important;
+}
+.md-nav__link--active,
+.md-nav__link:is(:focus, :hover) {
+  color: var(--hl-violet);
+}
+.md-sidebar--primary .md-nav__link--active {
+  font-weight: 600;
+}
+
+/* ---------- Typography ---------- */
+.md-typeset {
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--hl-heading);
+  color: var(--md-default-fg-color);
+}
+.md-typeset h1 {
+  font-size: 2.3em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6em;
+}
+.md-typeset h2 {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-top: 2.6em;
+}
+.md-typeset h3 {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-top: 1.8em;
+}
+.md-typeset .headerlink {
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* Small uppercase label above titles – same treatment as the promo art */
+.md-typeset .eyebrow {
+  font-family: var(--hl-heading);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hl-violet);
+  margin: 0 0 -0.4rem;
+}
+.md-typeset .lead {
+  font-size: 1.1em;
+  color: var(--md-default-fg-color);
+}
+
+/* ---------- Tables ---------- */
+.md-typeset table:not([class]) {
+  display: table;
+  width: 100%;
+  font-size: 0.72rem;
+  border: 1px solid var(--hl-rule);
+  border-radius: 8px;
+  box-shadow: none;
+}
+.md-typeset table:not([class]) th {
+  background: var(--hl-surface);
+  font-family: var(--hl-heading);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+  white-space: nowrap;
+}
+.md-typeset table:not([class]) td {
+  border-top: 1px solid var(--hl-rule);
+}
+.md-typeset table:not([class]) td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.md-typeset table:not([class]) tbody tr:hover {
+  background: var(--md-accent-fg-color--transparent);
+  box-shadow: none;
+}
+@media screen and (max-width: 44.9em) {
+  .md-typeset table:not([class]) td:first-child { white-space: normal; }
+}
+
+/* ---------- "At a glance" block ---------- */
+.md-typeset .glance {
+  background: var(--hl-surface);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.6em 0;
+  font-size: 0.75rem;
+}
+.md-typeset .glance dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.45rem 1.5rem;
+  margin: 0;
+}
+.md-typeset .glance dt {
+  font-family: var(--hl-heading);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hl-gold-deep);
+  padding-top: 0.15rem;
+}
+.md-typeset .glance dd { margin: 0; }
+.md-typeset .glance dd p { margin: 0; }
+@media screen and (max-width: 30em) {
+  .md-typeset .glance dl { grid-template-columns: 1fr; gap: 0.1rem; }
+  .md-typeset .glance dd { margin-bottom: 0.5rem; }
+}
+
+/* ---------- Figures ---------- */
+.md-typeset figure { margin: 1.8em auto; }
+.md-typeset figure img { border-radius: 8px; }
+.md-typeset figcaption {
+  max-width: 40rem;
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .grid figure { margin: 0; }
+.md-typeset .grid figure img { width: 100%; }
+
+/* ---------- Buttons ---------- */
+.md-typeset .md-button {
+  font-family: var(--hl-heading);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  border-radius: 6px;
+  padding: 0.55em 1.5em;
+  color: var(--md-default-fg-color);
+  border: 1px solid var(--md-default-fg-color--lighter);
+}
+.md-typeset .md-button:is(:hover, :focus) {
+  color: var(--hl-violet);
+  border-color: var(--hl-violet);
+  background: transparent;
+}
+.md-typeset .md-button--primary,
+.md-typeset .md-button--primary:is(:hover, :focus) {
+  background: var(--hl-gold);
+  border-color: var(--hl-gold);
+  color: #1a140a;
+}
+.md-typeset .md-button--primary:is(:hover, :focus) {
+  background: var(--hl-cream);
+  border-color: var(--hl-cream);
+}
+
+/* ---------- Home page ---------- */
+.md-typeset .cover {
+  margin: -0.6rem 0 1.6rem;
+}
+.md-typeset .cover img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+.md-typeset .intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+.md-typeset .intro p {
+  flex: 1 1 26rem;
+  margin: 0;
+  font-size: 1.05em;
+}
+.md-typeset .intro .actions {
+  display: flex;
+  gap: 0.6rem;
+  flex: 0 0 auto;
+}
+.md-typeset .intro .actions .md-button { margin: 0; }
+
+/* Three-step start path */
+.md-typeset .path {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 1.4em 0;
+  border-top: 1px solid var(--hl-rule);
+}
+.md-typeset .path > div {
+  padding: 1rem 1.2rem 0 0;
+}
+.md-typeset .path .n {
+  display: block;
+  font-family: var(--hl-heading);
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--hl-gold-deep);
+  margin-bottom: 0.5rem;
+}
+.md-typeset .path p { margin: 0.2em 0 0; font-size: 0.75rem; color: var(--md-default-fg-color--light); }
+.md-typeset .path strong { color: var(--md-default-fg-color); font-weight: 600; }
+@media screen and (max-width: 44.9em) {
+  .md-typeset .path { grid-template-columns: 1fr; }
+}
+
+/* Documented effects – editorial rows instead of icon cards */
+.md-typeset .effects {
+  margin: 1.2em 0;
+  border-top: 1px solid var(--hl-rule);
+}
+.md-typeset .effects a {
+  display: grid;
+  grid-template-columns: 11rem 1fr auto;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1rem 0.2rem;
+  border-bottom: 1px solid var(--hl-rule);
+  color: var(--md-default-fg-color);
+  transition: padding 0.15s ease;
+}
+.md-typeset .effects a:hover {
+  padding-left: 0.6rem;
+}
+.md-typeset .effects .name {
+  font-family: var(--hl-heading);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.md-typeset .effects .desc {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.78rem;
+}
+.md-typeset .effects .go {
+  color: var(--hl-violet);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+@media screen and (max-width: 44.9em) {
+  .md-typeset .effects a { grid-template-columns: 1fr; gap: 0.2rem; }
+  .md-typeset .effects .go { display: none; }
+}
+
+/* Plain two-column list for the remaining features */
+.md-typeset .also {
+  columns: 2 18rem;
+  column-gap: 2.5rem;
+  padding: 0;
+  margin: 1em 0 !important;
+  list-style: none;
+}
+.md-typeset .also li {
+  break-inside: avoid;
+  margin: 0 0 0.9em 0;
+  padding-left: 0;
+  font-size: 0.76rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .also li strong {
+  display: block;
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+}
+.md-typeset .also li::marker { content: none; }
+
+/* ---------- Pipeline steps (bloom) ---------- */
+.md-typeset .steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin: 1.5em 0;
+}
+.md-typeset .steps > div {
+  background: var(--hl-surface);
+  border-radius: 8px;
+  padding: 0.8rem 0.9rem;
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .steps > div p { margin: 0.25em 0 0; }
+.md-typeset .steps .n {
+  display: block;
+  font-family: var(--hl-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+}
+.md-typeset .steps .n b {
+  font-weight: 300;
+  color: var(--hl-gold-deep);
+  margin-right: 0.35rem;
+}
+@media screen and (max-width: 44.9em) {
+  .md-typeset .steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- Admonitions: three brand hues instead of a rainbow ---------- */
+:root {
+  --md-admonition-icon--performance: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16a3 3 0 0 1-3-3c0-1.12.61-2.1 1.5-2.61l9.71-5.62-5.53 9.58c-.5.98-1.51 1.65-2.68 1.65m0-13c1.81 0 3.5.5 4.97 1.32l-2.1 1.21C14 5.19 13 5 12 5a8 8 0 0 0-8 8c0 2.21.89 4.21 2.34 5.65h.01c.39.39.39 1.02 0 1.41-.39.39-1.03.39-1.42.01A9.97 9.97 0 0 1 2 13 10 10 0 0 1 12 3m10 10c0 2.76-1.12 5.26-2.93 7.07-.39.38-1.02.38-1.41-.01a.996.996 0 0 1 0-1.41A7.95 7.95 0 0 0 20 13c0-1-.19-2-.54-2.9L20.67 8C21.5 9.5 22 11.18 22 13"/></svg>');
+}
+.md-typeset .admonition,
+.md-typeset details {
+  --hl-adm: var(--md-default-fg-color--lighter);
+  border: 0;
+  border-left: 3px solid var(--hl-adm);
+  border-radius: 0 8px 8px 0;
+  box-shadow: none;
+  background: var(--hl-surface);
+  font-size: 0.75rem;
+}
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+  background: transparent;
+  font-family: var(--hl-heading);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.md-typeset .admonition > .admonition-title::before,
+.md-typeset details > summary::before {
+  background-color: var(--hl-adm);
+}
+.md-typeset details > summary::after { color: var(--md-default-fg-color--lighter); }
+
+.md-typeset :is(.admonition, details):is(.tip, .question, .info, .success) { --hl-adm: var(--hl-violet); }
+.md-typeset :is(.admonition, details):is(.note, .abstract) { --hl-adm: var(--md-default-fg-color--lighter); }
+.md-typeset :is(.admonition, details):is(.warning, .danger) { --hl-adm: var(--hl-coral); }
+.md-typeset :is(.admonition, details).performance { --hl-adm: var(--hl-gold-deep); }
+.md-typeset .performance > :is(.admonition-title, summary)::before {
+  -webkit-mask-image: var(--md-admonition-icon--performance);
+          mask-image: var(--md-admonition-icon--performance);
+}
+
+/* FAQ entries: quieter, list-like */
+.md-typeset details.question {
+  border-left-width: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--hl-rule);
+  margin: 0;
+}
+.md-typeset details.question:first-of-type { border-top: 1px solid var(--hl-rule); }
+.md-typeset details.question > summary { font-family: var(--md-text-font-family); font-weight: 600; font-size: 0.78rem; }
+
+/* ---------- Footer ---------- */
+.md-footer-meta { border-top: 1px solid rgba(239, 200, 120, 0.12); }
+
+.md-typeset .visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.md-typeset .cover { margin-top: 0.4rem; }
+
+/* Material's per-type admonition rules are more specific; restate ours on top */
+.md-typeset :is(.admonition, details) {
+  border-color: var(--hl-adm) !important;
+}
+.md-typeset :is(.admonition, details) > :is(.admonition-title, summary) {
+  background-color: transparent !important;
+}
+.md-typeset :is(.admonition, details) > :is(.admonition-title, summary)::before {
+  background-color: var(--hl-adm) !important;
+}
+.md-typeset details.question { border-color: var(--hl-rule) !important; }
+
+[data-md-color-scheme] {
+  --md-footer-bg-color: #0c0b0e;
+  --md-footer-bg-color--dark: #060507;
+}
+.md-typeset details > summary::after { background-color: var(--md-default-fg-color--lighter) !important; }
+.md-typeset ul.also, .md-typeset ul.also li { margin-left: 0 !important; padding-left: 0 !important; }
